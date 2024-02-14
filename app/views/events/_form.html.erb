@@ -1,0 +1,9 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if params[:event_type] == "A" %>
+    <%= form.hidden_field :event_type, value: "A" %>
+  <% elsif params[:event_type] == "B" %>
+    <%= form.hidden_field :event_type, value: "B" %>
+  <% end %>
+
+  <!-- Add other form fields here -->
+<% end %>

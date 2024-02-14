@@ -1,0 +1,13 @@
+<% @event = Event.find_by(id: params[:id]) %>
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @event.user.first_name + " " + @event.user.last_name %>
+</p>
+
+<%#= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
