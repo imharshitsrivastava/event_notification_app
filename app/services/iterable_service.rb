@@ -62,13 +62,13 @@ class IterableService
   end
 
   def create_event(user_id, event_name)
-    puts "#{event_name.present? ? event_name : "Event"} created for user #{user_id} in iterable"
-    true # return value indicating success
+    # puts "#{event_name.present? ? event_name : "Event"} created for user #{User.user_name(user_id)} in iterable"
+    return true # return value indicating success
   end
 
   def send_email_notification(email)
     # rake task will send the email
-    puts "Email notification sent to #{email} via iterable"
-    return true
+    # puts "Email notification sent to #{email} via iterable"
+    return true # return value indicating success
   end
 end

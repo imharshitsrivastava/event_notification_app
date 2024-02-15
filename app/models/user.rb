@@ -13,4 +13,9 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A^[^\W_](?:[\w.-]*[^\W_])?@(?:\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.|(?:[\w-]+\.)+)(?:[a-zA-Z]{2,3}|[0-9]{1,3})\]?$\Z/, message: "is invalid" }
   validates_confirmation_of :password, if: -> { password_confirmation.present? }
 
+  def self.user_name(user_id)
+    user = find(user_id)
+    "#{user.first_name} #{user.last_name}"
+  end
+
 end
