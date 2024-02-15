@@ -66,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-nav'
 gem 'devise'
 gem 'whenever', require: false
+gem 'iterable-api-client'

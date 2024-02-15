@@ -33,10 +33,10 @@ class IterableService
   # end
   #
   # def self.send_request(endpoint, data, method)
-  #   uri = URI("#{ENV['ITERABLE_API_BASE_URL']}#{endpoint}")
+  #   uri = URI("#{ENV['ITERABLE_API_KEY']}#{endpoint}")
   #   req = Net::HTTP.const_get(method.capitalize).new(uri, 'Content-Type' => 'application/json')
   #   # Use the mock API key if we're not using a real one
-  #   req['Api-Key'] = (ENV['ITERABLE_API_BASE_URL'] == 'YOUR_ITERABLE_API_KEY') ? MOCK_API_KEY : ENV['ITERABLE_API_BASE_URL']
+  #   req['Api-Key'] = (ENV['ITERABLE_API_KEY'] == 'YOUR_ITERABLE_API_KEY') ? MOCK_API_KEY : ENV['ITERABLE_API_KEY']
   #   req.body = data.to_json
   #   Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
   #     http.request(req)
@@ -62,13 +62,13 @@ class IterableService
   end
 
   def create_event(user_id, event_name)
-    puts "Event #{event_name} created for user #{user_id} in iterable.com"
+    puts "#{event_name.present? ? event_name : "Event"} created for user #{user_id} in iterable"
     true # return value indicating success
   end
 
   def send_email_notification(email)
     # rake task will send the email
-    puts "Email notification sent to #{email} via iterable.com"
+    puts "Email notification sent to #{email} via iterable"
     return true
   end
 end
